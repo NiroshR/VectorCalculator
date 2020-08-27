@@ -2,7 +2,7 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
-#include "greeter.grpc.pb.h"
+#include "vector.grpc.pb.h"
 
 using calculus::Vector;
 using calculus::VectorCalculator;

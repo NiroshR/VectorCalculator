@@ -4,7 +4,7 @@
 #include <memory>
 #include <string>
 
-#include "greeter.grpc.pb.h"
+#include "vector.grpc.pb.h"
 
 using calculus::Vector;
 using calculus::VectorCalculator;

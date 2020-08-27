@@ -49,8 +49,8 @@ SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-
 # Set the object file names, with the source directory stripped
 # from the path, and the build path prepended in its place
 OBJECTS += $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
-OBJECTS += build/greeter.pb.o
-OBJECTS += build/greeter.grpc.pb.o
+OBJECTS += build/vector.pb.o
+OBJECTS += build/vector.grpc.pb.o
 # Set the dependency files that will be used to add header dependencies
 DEPS = $(OBJECTS:.o=.d)
 
@@ -106,8 +106,8 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@
 
-build/greeter.pb.o: 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/greeter.pb.cc
+build/vector.pb.o: 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/vector.pb.cc
 
-build/greeter.grpc.pb.o: 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/greeter.grpc.pb.cc
+build/vector.grpc.pb.o: 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/vector.grpc.pb.cc
