@@ -11,6 +11,7 @@ using calculus::VectorMagnitudeRequest;
 using calculus::VectorRequest;
 using grpc::ServerContext;
 using grpc::Status;
+using grpc::string;
 
 class VectorServiceImpl final : public VectorCalculator::Service {
    public:

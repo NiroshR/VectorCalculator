@@ -23,6 +23,9 @@ VectorServiceImpl::VectorServiceImpl() {}
 Status VectorServiceImpl::VectorCrossProduct(ServerContext* context,
                                              const VectorRequest* request,
                                              Vector* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     crossProduct(request, response);
 
     return Status::OK;
@@ -30,6 +33,9 @@ Status VectorServiceImpl::VectorCrossProduct(ServerContext* context,
 
 Status VectorServiceImpl::VectorCrossProductAbsolute(
     ServerContext* context, const VectorRequest* request, Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     Vector* vec = new Vector();
     crossProduct(request, vec);
 
@@ -44,6 +50,9 @@ Status VectorServiceImpl::VectorCrossProductAbsolute(
 Status VectorServiceImpl::MagnitudeCrossProduct(
     ServerContext* context, const VectorMagnitudeRequest* request,
     Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     double tmp = sin(request->angle() * PI / 180);
     response->set_value(request->mag1() * request->mag2() * tmp);
 
@@ -53,6 +62,9 @@ Status VectorServiceImpl::MagnitudeCrossProduct(
 Status VectorServiceImpl::DotProduct(ServerContext* context,
                                      const VectorRequest* request,
                                      Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     response->set_value(dotProduct(request));
     return Status::OK;
 }
@@ -60,6 +72,9 @@ Status VectorServiceImpl::DotProduct(ServerContext* context,
 Status VectorServiceImpl::MagnitudeDotProduct(
     ServerContext* context, const VectorMagnitudeRequest* request,
     Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     double tmp = cos(request->angle() * PI / 180);
     response->set_value(request->mag1() * request->mag2() * tmp);
 
@@ -69,6 +84,9 @@ Status VectorServiceImpl::MagnitudeDotProduct(
 Status VectorServiceImpl::ScalarProjection(ServerContext* context,
                                            const VectorRequest* request,
                                            Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     double dot = dotProduct(request);
     auto tmp = request->second();
     double mag = vectorMagnitude(&tmp);
@@ -79,6 +97,9 @@ Status VectorServiceImpl::ScalarProjection(ServerContext* context,
 Status VectorServiceImpl::VectorProjection(ServerContext* context,
                                            const VectorRequest* request,
                                            Vector* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     double dot = dotProduct(request);
     auto tmp = request->second();
     double mag = vectorMagnitude(&tmp);
@@ -91,6 +112,9 @@ Status VectorServiceImpl::VectorProjection(ServerContext* context,
 
 Status VectorServiceImpl::ApplicationVolumeParallelepiped(
     ServerContext* context, const VectorRequest* request, Scalar* response) {
+    printf("Servicing request: %s from %s\n", __FUNCTION__,
+           context->peer().c_str());
+
     Vector* vec = new Vector();
     crossProduct(request, vec);
 
@@ -164,7 +188,7 @@ void RunServer() {
     server->Wait();
 }
 
-int main(int argc, char** argv) {
+int main() {
     RunServer();
 
     return 0;

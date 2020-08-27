@@ -174,6 +174,22 @@ int main() {
     VectorClient client(
         grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
     std::string user("world");
+
     std::string reply = client.VectorCrossProduct(user);
-    std::cout << "Computation received: " << reply << std::endl;
+    std::cout << "VectorCrossProduct received: " << reply << std::endl;
+    reply = client.VectorCrossProductAbsolute(user);
+    std::cout << "VectorCrossProductAbsolute received: " << reply << std::endl;
+    reply = client.MagnitudeCrossProduct(user);
+    std::cout << "MagnitudeCrossProduct received: " << reply << std::endl;
+    reply = client.DotProduct(user);
+    std::cout << "DotProduct received: " << reply << std::endl;
+    reply = client.MagnitudeDotProduct(user);
+    std::cout << "MagnitudeDotProduct received: " << reply << std::endl;
+    reply = client.ScalarProjection(user);
+    std::cout << "ScalarProjection received: " << reply << std::endl;
+    reply = client.VectorProjection(user);
+    std::cout << "VectorProjection received: " << reply << std::endl;
+    reply = client.ApplicationVolumeParallelepiped(user);
+    std::cout << "ApplicationVolumeParallelepiped received: " << reply
+              << std::endl;
 }
