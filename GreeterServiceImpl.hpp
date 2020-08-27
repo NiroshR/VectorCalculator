@@ -4,14 +4,16 @@
 
 #include "greeter.grpc.pb.h"
 
-using hello::world::Greeter;
-using hello::world::HelloReply;
-using hello::world::HelloRequest;
+using calculus::Vector;
+using calculus::VectorCalculator;
+using calculus::VectorRequest;
+using grpc::ServerContext;
+using grpc::Status;
 
-class GreeterServiceImpl final : public Greeter::Service {
+class GreeterServiceImpl final : public VectorCalculator::Service {
    public:
     GreeterServiceImpl();
-    grpc::Status SayHello(grpc::ServerContext* context,
-                          const HelloRequest* request,
-                          HelloReply* reply) override;
+    Status CrossProduct(::ServerContext* context,
+                        const ::calculus::VectorRequest* request,
+                        ::calculus::Vector* response) override;
 };

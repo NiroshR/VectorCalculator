@@ -6,20 +6,23 @@
 
 #include "greeter.grpc.pb.h"
 
+using calculus::Vector;
+using calculus::VectorCalculator;
+using calculus::VectorRequest;
 using grpc::Channel;
 using grpc::ClientContext;
+using grpc::Server;
+using grpc::ServerBuilder;
+using grpc::ServerContext;
 using grpc::Status;
-using hello::world::Greeter;
-using hello::world::HelloReply;
-using hello::world::HelloRequest;
 
 class GreeterClient {
    public:
     GreeterClient(std::shared_ptr<Channel> channel);
     ~GreeterClient() = default;
 
-    std::string SayHello(const std::string& user);
+    std::string CrossProduct(const std::string& user);
 
    private:
-    std::unique_ptr<Greeter::Stub> m_stub;
+    std::unique_ptr<VectorCalculator::Stub> m_stub;
 };

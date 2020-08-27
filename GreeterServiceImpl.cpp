@@ -14,17 +14,13 @@
 
 using grpc::Server;
 using grpc::ServerBuilder;
-using grpc::ServerContext;
-using grpc::Status;
 
 GreeterServiceImpl::GreeterServiceImpl() {}
 
-Status GreeterServiceImpl::SayHello(ServerContext* context,
-                                    const HelloRequest* request,
-                                    HelloReply* reply) {
-    std::string prefix("Hello there.");
-    reply->set_message(prefix + request->name());
-
+Status GreeterServiceImpl::CrossProduct(
+    ::ServerContext* context, const ::calculus::VectorRequest* request,
+    ::calculus::Vector* response) {
+    response->set_y(5.0);
     return Status::OK;
 }
 
