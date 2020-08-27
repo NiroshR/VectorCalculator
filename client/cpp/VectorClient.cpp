@@ -17,7 +17,151 @@ std::string VectorClient::VectorCrossProduct(const std::string& user) {
 
     // Act upon its status.
     if (status.ok()) {
-        return std::to_string(reply.y());
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::VectorCrossProductAbsolute(const std::string& user) {
+    // Context for the client. It could be used to
+    // convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status =
+        m_stub->VectorCrossProductAbsolute(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::MagnitudeCrossProduct(const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorMagnitudeRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status = m_stub->MagnitudeCrossProduct(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::DotProduct(const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status = m_stub->DotProduct(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::MagnitudeDotProduct(const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorMagnitudeRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status = m_stub->MagnitudeDotProduct(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::ScalarProjection(const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status = m_stub->ScalarProjection(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::VectorProjection(const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorRequest request;
+    Vector reply;
+
+    // The actual RPC.
+    Status status = m_stub->VectorProjection(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
+    } else {
+        std::cout << status.error_code() << ": " << status.error_message()
+                  << std::endl;
+        return "RPC failed";
+    }
+}
+
+std::string VectorClient::ApplicationVolumeParallelepiped(
+    const std::string& user) {
+    // Context for the client. It could be used to convey extra information to
+    // the server and/or tweak certain RPC behaviors.
+    ClientContext context;
+    VectorRequest request;
+    Scalar reply;
+
+    // The actual RPC.
+    Status status =
+        m_stub->ApplicationVolumeParallelepiped(&context, request, &reply);
+
+    // Act upon its status.
+    if (status.ok()) {
+        return "OK";
     } else {
         std::cout << status.error_code() << ": " << status.error_message()
                   << std::endl;
