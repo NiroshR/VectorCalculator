@@ -37,7 +37,7 @@ BUILD_PATH = build
 BIN_PATH = $(BUILD_PATH)/bin
 
 # executable # 
-BIN_NAME = server
+BIN_NAME = client
 
 # extensions #
 SRC_EXT = cpp
@@ -57,7 +57,7 @@ DEPS = $(OBJECTS:.o=.d)
 # flags #
 COMPILE_FLAGS = -std=c++14 -Wall -Wextra -g
 INCLUDES += -I include/ -I /usr/local/include
-INCLUDES += -I ../proto/cpp
+INCLUDES += -I ../../proto/cpp
 
 # Space-separated pkg-config libraries used by this project
 LIBS += 
@@ -107,7 +107,7 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@
 
 build/greeter.pb.o: 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../proto/cpp/greeter.pb.cc
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/greeter.pb.cc
 
 build/greeter.grpc.pb.o: 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../proto/cpp/greeter.grpc.pb.cc
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -MP -MMD -c $< -o $@ ../../proto/cpp/greeter.grpc.pb.cc
