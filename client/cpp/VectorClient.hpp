@@ -21,7 +21,7 @@ class VectorClient {
     VectorClient(std::shared_ptr<Channel> channel);
     ~VectorClient() = default;
 
-    std::string CrossProduct(const std::string& user);
+    std::string VectorCrossProduct(const std::string& user);
 
    private:
     std::unique_ptr<VectorCalculator::Stub> m_stub;

@@ -35,6 +35,9 @@ Status VectorServiceImpl::VectorCrossProductAbsolute(
 
     response->set_value(vectorMagnitude(vec));
 
+    delete vec;
+    vec = nullptr;
+
     return Status::OK;
 }
 
@@ -96,6 +99,9 @@ Status VectorServiceImpl::ApplicationVolumeParallelepiped(
     double x = vec->x() * vec3.x();
     double y = vec->y() * vec3.y();
     double z = vec->z() * vec3.z();
+
+    delete vec;
+    vec = nullptr;
 
     response->set_value(fabs(x + y + z));
 
