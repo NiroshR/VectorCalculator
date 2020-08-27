@@ -16,10 +16,10 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 
-class GreeterClient {
+class VectorClient {
    public:
-    GreeterClient(std::shared_ptr<Channel> channel);
-    ~GreeterClient() = default;
+    VectorClient(std::shared_ptr<Channel> channel);
+    ~VectorClient() = default;
 
     std::string CrossProduct(const std::string& user);
 

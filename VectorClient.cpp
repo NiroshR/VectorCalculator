@@ -1,11 +1,11 @@
-#include "GreeterClient.hpp"
+#include "VectorClient.hpp"
 
-GreeterClient::GreeterClient(std::shared_ptr<Channel> channel)
+VectorClient::VectorClient(std::shared_ptr<Channel> channel)
     : m_stub(VectorCalculator::NewStub(channel)) {}
 
 // Assembles the client's payload, sends it and presents the response back
 // from the server.
-std::string GreeterClient::CrossProduct(const std::string& user) {
+std::string VectorClient::CrossProduct(const std::string& user) {
     // Data we are sending to the server.
     VectorRequest request;
 
@@ -31,7 +31,7 @@ std::string GreeterClient::CrossProduct(const std::string& user) {
 
 int main() {
     std::string target_str = "localhost:50051";
-    GreeterClient greeter(
+    VectorClient greeter(
         grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
     std::string user("world");
     std::string reply = greeter.CrossProduct(user);

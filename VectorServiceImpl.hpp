@@ -10,9 +10,9 @@ using calculus::VectorRequest;
 using grpc::ServerContext;
 using grpc::Status;
 
-class GreeterServiceImpl final : public VectorCalculator::Service {
+class VectorServiceImpl final : public VectorCalculator::Service {
    public:
-    GreeterServiceImpl();
+    VectorServiceImpl();
     Status CrossProduct(::ServerContext* context,
                         const ::calculus::VectorRequest* request,
                         ::calculus::Vector* response) override;

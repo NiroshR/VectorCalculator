@@ -1,4 +1,4 @@
-#include "GreeterServiceImpl.hpp"
+#include "VectorServiceImpl.hpp"
 
 #include <grpc/grpc.h>
 #include <grpcpp/ext/proto_server_reflection_plugin.h>
@@ -15,18 +15,18 @@
 using grpc::Server;
 using grpc::ServerBuilder;
 
-GreeterServiceImpl::GreeterServiceImpl() {}
+VectorServiceImpl::VectorServiceImpl() {}
 
-Status GreeterServiceImpl::CrossProduct(
-    ::ServerContext* context, const ::calculus::VectorRequest* request,
-    ::calculus::Vector* response) {
+Status VectorServiceImpl::CrossProduct(::ServerContext* context,
+                                       const ::calculus::VectorRequest* request,
+                                       ::calculus::Vector* response) {
     response->set_y(5.0);
     return Status::OK;
 }
 
 void RunServer() {
     std::string server_address("0.0.0.0:50051");
-    GreeterServiceImpl service;
+    VectorServiceImpl service;
 
     grpc::EnableDefaultHealthCheckService(true);
     grpc::reflection::InitProtoReflectionServerBuilderPlugin();
