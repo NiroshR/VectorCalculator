@@ -3,7 +3,17 @@ syntax = "proto3";
 package calculus;
 
 service VectorCalculator {
-  rpc CrossProduct (VectorRequest) returns (Vector) {}
+  rpc VectorCrossProduct (VectorRequest) returns (Vector) {}
+  rpc VectorCrossProductAbsolute (VectorRequest) returns (Scalar) {}
+  rpc MagnitudeCrossProduct (VectorMagnitudeRequest) returns (Scalar) {}
+
+  rpc DotProduct (VectorRequest) returns (Scalar) {}
+  rpc MagnitudeDotProduct (VectorMagnitudeRequest) returns (Scalar) {}
+
+  rpc ScalarProjection (VectorRequest) returns (Scalar) {}
+  rpc VectorProjection (VectorRequest) returns (Vector) {}
+
+  rpc ApplicationVolumeParallelepiped (VectorRequest) returns (Scalar) {}
 }
 
 message Scalar {
@@ -19,5 +29,11 @@ message Vector {
 message VectorRequest {
   Vector first = 1;
   Vector second = 2;
-  Vector thrird = 3;
+  Vector third = 3;
+}
+
+message VectorMagnitudeRequest {
+  double mag1 = 1;
+  double mag2 = 2;
+  double angle = 3;
 }

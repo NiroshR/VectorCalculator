@@ -22,7 +22,14 @@
 namespace calculus {
 
 static const char* VectorCalculator_method_names[] = {
-  "/calculus.VectorCalculator/CrossProduct",
+  "/calculus.VectorCalculator/VectorCrossProduct",
+  "/calculus.VectorCalculator/VectorCrossProductAbsolute",
+  "/calculus.VectorCalculator/MagnitudeCrossProduct",
+  "/calculus.VectorCalculator/DotProduct",
+  "/calculus.VectorCalculator/MagnitudeDotProduct",
+  "/calculus.VectorCalculator/ScalarProjection",
+  "/calculus.VectorCalculator/VectorProjection",
+  "/calculus.VectorCalculator/ApplicationVolumeParallelepiped",
 };
 
 std::unique_ptr< VectorCalculator::Stub> VectorCalculator::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,35 +39,238 @@ std::unique_ptr< VectorCalculator::Stub> VectorCalculator::NewStub(const std::sh
 }
 
 VectorCalculator::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_CrossProduct_(VectorCalculator_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_VectorCrossProduct_(VectorCalculator_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_VectorCrossProductAbsolute_(VectorCalculator_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MagnitudeCrossProduct_(VectorCalculator_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DotProduct_(VectorCalculator_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MagnitudeDotProduct_(VectorCalculator_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ScalarProjection_(VectorCalculator_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_VectorProjection_(VectorCalculator_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ApplicationVolumeParallelepiped_(VectorCalculator_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status VectorCalculator::Stub::CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CrossProduct_, context, request, response);
+::grpc::Status VectorCalculator::Stub::VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_VectorCrossProduct_, context, request, response);
 }
 
-void VectorCalculator::Stub::experimental_async::CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CrossProduct_, context, request, response, std::move(f));
+void VectorCalculator::Stub::experimental_async::VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProduct_, context, request, response, std::move(f));
 }
 
-void VectorCalculator::Stub::experimental_async::CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CrossProduct_, context, request, response, std::move(f));
+void VectorCalculator::Stub::experimental_async::VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProduct_, context, request, response, std::move(f));
 }
 
-void VectorCalculator::Stub::experimental_async::CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CrossProduct_, context, request, response, reactor);
+void VectorCalculator::Stub::experimental_async::VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProduct_, context, request, response, reactor);
 }
 
-void VectorCalculator::Stub::experimental_async::CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CrossProduct_, context, request, response, reactor);
+void VectorCalculator::Stub::experimental_async::VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProduct_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::AsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_CrossProduct_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::AsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_VectorCrossProduct_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::PrepareAsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_CrossProduct_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::PrepareAsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_VectorCrossProduct_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_VectorCrossProductAbsolute_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProductAbsolute_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProductAbsolute_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProductAbsolute_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorCrossProductAbsolute_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_VectorCrossProductAbsolute_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_VectorCrossProductAbsolute_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_MagnitudeCrossProduct_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MagnitudeCrossProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MagnitudeCrossProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_MagnitudeCrossProduct_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_MagnitudeCrossProduct_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_MagnitudeCrossProduct_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_MagnitudeCrossProduct_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_DotProduct_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DotProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DotProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DotProduct_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DotProduct_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_DotProduct_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_DotProduct_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_MagnitudeDotProduct_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MagnitudeDotProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MagnitudeDotProduct_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_MagnitudeDotProduct_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_MagnitudeDotProduct_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_MagnitudeDotProduct_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_MagnitudeDotProduct_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ScalarProjection_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ScalarProjection_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ScalarProjection_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ScalarProjection_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ScalarProjection_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_ScalarProjection_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_ScalarProjection_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_VectorProjection_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorProjection_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VectorProjection_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorProjection_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_VectorProjection_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::AsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_VectorProjection_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Vector>* VectorCalculator::Stub::PrepareAsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Vector>::Create(channel_.get(), cq, rpcmethod_VectorProjection_, context, request, false);
+}
+
+::grpc::Status VectorCalculator::Stub::ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ApplicationVolumeParallelepiped_, context, request, response);
+}
+
+void VectorCalculator::Stub::experimental_async::ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ApplicationVolumeParallelepiped_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ApplicationVolumeParallelepiped_, context, request, response, std::move(f));
+}
+
+void VectorCalculator::Stub::experimental_async::ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ApplicationVolumeParallelepiped_, context, request, response, reactor);
+}
+
+void VectorCalculator::Stub::experimental_async::ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ApplicationVolumeParallelepiped_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::AsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_ApplicationVolumeParallelepiped_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* VectorCalculator::Stub::PrepareAsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::calculus::Scalar>::Create(channel_.get(), cq, rpcmethod_ApplicationVolumeParallelepiped_, context, request, false);
 }
 
 VectorCalculator::Service::Service() {
@@ -72,14 +282,133 @@ VectorCalculator::Service::Service() {
              ::grpc_impl::ServerContext* ctx,
              const ::calculus::VectorRequest* req,
              ::calculus::Vector* resp) {
-               return service->CrossProduct(ctx, req, resp);
+               return service->VectorCrossProduct(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->VectorCrossProductAbsolute(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorMagnitudeRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->MagnitudeCrossProduct(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->DotProduct(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorMagnitudeRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->MagnitudeDotProduct(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->ScalarProjection(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[6],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorRequest, ::calculus::Vector>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorRequest* req,
+             ::calculus::Vector* resp) {
+               return service->VectorProjection(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      VectorCalculator_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< VectorCalculator::Service, ::calculus::VectorRequest, ::calculus::Scalar>(
+          [](VectorCalculator::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::calculus::VectorRequest* req,
+             ::calculus::Scalar* resp) {
+               return service->ApplicationVolumeParallelepiped(ctx, req, resp);
              }, this)));
 }
 
 VectorCalculator::Service::~Service() {
 }
 
-::grpc::Status VectorCalculator::Service::CrossProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) {
+::grpc::Status VectorCalculator::Service::VectorCrossProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::VectorCrossProductAbsolute(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::MagnitudeCrossProduct(::grpc::ServerContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::DotProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::MagnitudeDotProduct(::grpc::ServerContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::ScalarProjection(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::VectorProjection(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status VectorCalculator::Service::ApplicationVolumeParallelepiped(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -28,6 +28,10 @@ class VectorRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VectorRequest> _instance;
 } _VectorRequest_default_instance_;
+class VectorMagnitudeRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<VectorMagnitudeRequest> _instance;
+} _VectorMagnitudeRequest_default_instance_;
 }  // namespace calculus
 static void InitDefaultsscc_info_Scalar_vector_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -57,6 +61,20 @@ static void InitDefaultsscc_info_Vector_vector_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vector_vector_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Vector_vector_2eproto}, {}};
 
+static void InitDefaultsscc_info_VectorMagnitudeRequest_vector_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::calculus::_VectorMagnitudeRequest_default_instance_;
+    new (ptr) ::calculus::VectorMagnitudeRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::calculus::VectorMagnitudeRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_VectorMagnitudeRequest_vector_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_VectorMagnitudeRequest_vector_2eproto}, {}};
+
 static void InitDefaultsscc_info_VectorRequest_vector_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -72,7 +90,7 @@ static void InitDefaultsscc_info_VectorRequest_vector_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_VectorRequest_vector_2eproto}, {
       &scc_info_Vector_vector_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_vector_2eproto[3];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_vector_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_vector_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_vector_2eproto = nullptr;
 
@@ -98,43 +116,68 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_vector_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::calculus::VectorRequest, first_),
   PROTOBUF_FIELD_OFFSET(::calculus::VectorRequest, second_),
-  PROTOBUF_FIELD_OFFSET(::calculus::VectorRequest, thrird_),
+  PROTOBUF_FIELD_OFFSET(::calculus::VectorRequest, third_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::calculus::VectorMagnitudeRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::calculus::VectorMagnitudeRequest, mag1_),
+  PROTOBUF_FIELD_OFFSET(::calculus::VectorMagnitudeRequest, mag2_),
+  PROTOBUF_FIELD_OFFSET(::calculus::VectorMagnitudeRequest, angle_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::calculus::Scalar)},
   { 6, -1, sizeof(::calculus::Vector)},
   { 14, -1, sizeof(::calculus::VectorRequest)},
+  { 22, -1, sizeof(::calculus::VectorMagnitudeRequest)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::calculus::_Scalar_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::calculus::_Vector_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::calculus::_VectorRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::calculus::_VectorMagnitudeRequest_default_instance_),
 };
 
 const char descriptor_table_protodef_vector_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014vector.proto\022\010calculus\"\027\n\006Scalar\022\r\n\005va"
   "lue\030\001 \001(\001\")\n\006Vector\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001("
-  "\001\022\t\n\001z\030\003 \001(\001\"t\n\rVectorRequest\022\037\n\005first\030\001"
+  "\001\022\t\n\001z\030\003 \001(\001\"s\n\rVectorRequest\022\037\n\005first\030\001"
   " \001(\0132\020.calculus.Vector\022 \n\006second\030\002 \001(\0132\020"
-  ".calculus.Vector\022 \n\006thrird\030\003 \001(\0132\020.calcu"
-  "lus.Vector2O\n\020VectorCalculator\022;\n\014CrossP"
-  "roduct\022\027.calculus.VectorRequest\032\020.calcul"
-  "us.Vector\"\000b\006proto3"
+  ".calculus.Vector\022\037\n\005third\030\003 \001(\0132\020.calcul"
+  "us.Vector\"C\n\026VectorMagnitudeRequest\022\014\n\004m"
+  "ag1\030\001 \001(\001\022\014\n\004mag2\030\002 \001(\001\022\r\n\005angle\030\003 \001(\0012\311"
+  "\004\n\020VectorCalculator\022A\n\022VectorCrossProduc"
+  "t\022\027.calculus.VectorRequest\032\020.calculus.Ve"
+  "ctor\"\000\022I\n\032VectorCrossProductAbsolute\022\027.c"
+  "alculus.VectorRequest\032\020.calculus.Scalar\""
+  "\000\022M\n\025MagnitudeCrossProduct\022 .calculus.Ve"
+  "ctorMagnitudeRequest\032\020.calculus.Scalar\"\000"
+  "\0229\n\nDotProduct\022\027.calculus.VectorRequest\032"
+  "\020.calculus.Scalar\"\000\022K\n\023MagnitudeDotProdu"
+  "ct\022 .calculus.VectorMagnitudeRequest\032\020.c"
+  "alculus.Scalar\"\000\022\?\n\020ScalarProjection\022\027.c"
+  "alculus.VectorRequest\032\020.calculus.Scalar\""
+  "\000\022\?\n\020VectorProjection\022\027.calculus.VectorR"
+  "equest\032\020.calculus.Vector\"\000\022N\n\037Applicatio"
+  "nVolumeParallelepiped\022\027.calculus.VectorR"
+  "equest\032\020.calculus.Scalar\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_vector_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_vector_2eproto_sccs[3] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_vector_2eproto_sccs[4] = {
   &scc_info_Scalar_vector_2eproto.base,
   &scc_info_Vector_vector_2eproto.base,
+  &scc_info_VectorMagnitudeRequest_vector_2eproto.base,
   &scc_info_VectorRequest_vector_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_vector_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_vector_2eproto = {
-  false, false, descriptor_table_protodef_vector_2eproto, "vector.proto", 299,
-  &descriptor_table_vector_2eproto_once, descriptor_table_vector_2eproto_sccs, descriptor_table_vector_2eproto_deps, 3, 0,
+  false, false, descriptor_table_protodef_vector_2eproto, "vector.proto", 874,
+  &descriptor_table_vector_2eproto_once, descriptor_table_vector_2eproto_sccs, descriptor_table_vector_2eproto_deps, 4, 0,
   schemas, file_default_instances, TableStruct_vector_2eproto::offsets,
-  file_level_metadata_vector_2eproto, 3, file_level_enum_descriptors_vector_2eproto, file_level_service_descriptors_vector_2eproto,
+  file_level_metadata_vector_2eproto, 4, file_level_enum_descriptors_vector_2eproto, file_level_service_descriptors_vector_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -591,14 +634,14 @@ void VectorRequest::InitAsDefaultInstance() {
       ::calculus::Vector::internal_default_instance());
   ::calculus::_VectorRequest_default_instance_._instance.get_mutable()->second_ = const_cast< ::calculus::Vector*>(
       ::calculus::Vector::internal_default_instance());
-  ::calculus::_VectorRequest_default_instance_._instance.get_mutable()->thrird_ = const_cast< ::calculus::Vector*>(
+  ::calculus::_VectorRequest_default_instance_._instance.get_mutable()->third_ = const_cast< ::calculus::Vector*>(
       ::calculus::Vector::internal_default_instance());
 }
 class VectorRequest::_Internal {
  public:
   static const ::calculus::Vector& first(const VectorRequest* msg);
   static const ::calculus::Vector& second(const VectorRequest* msg);
-  static const ::calculus::Vector& thrird(const VectorRequest* msg);
+  static const ::calculus::Vector& third(const VectorRequest* msg);
 };
 
 const ::calculus::Vector&
@@ -610,8 +653,8 @@ VectorRequest::_Internal::second(const VectorRequest* msg) {
   return *msg->second_;
 }
 const ::calculus::Vector&
-VectorRequest::_Internal::thrird(const VectorRequest* msg) {
-  return *msg->thrird_;
+VectorRequest::_Internal::third(const VectorRequest* msg) {
+  return *msg->third_;
 }
 VectorRequest::VectorRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -632,10 +675,10 @@ VectorRequest::VectorRequest(const VectorRequest& from)
   } else {
     second_ = nullptr;
   }
-  if (from._internal_has_thrird()) {
-    thrird_ = new ::calculus::Vector(*from.thrird_);
+  if (from._internal_has_third()) {
+    third_ = new ::calculus::Vector(*from.third_);
   } else {
-    thrird_ = nullptr;
+    third_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:calculus.VectorRequest)
 }
@@ -643,8 +686,8 @@ VectorRequest::VectorRequest(const VectorRequest& from)
 void VectorRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_VectorRequest_vector_2eproto.base);
   ::memset(&first_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&thrird_) -
-      reinterpret_cast<char*>(&first_)) + sizeof(thrird_));
+      reinterpret_cast<char*>(&third_) -
+      reinterpret_cast<char*>(&first_)) + sizeof(third_));
 }
 
 VectorRequest::~VectorRequest() {
@@ -657,7 +700,7 @@ void VectorRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete first_;
   if (this != internal_default_instance()) delete second_;
-  if (this != internal_default_instance()) delete thrird_;
+  if (this != internal_default_instance()) delete third_;
 }
 
 void VectorRequest::ArenaDtor(void* object) {
@@ -689,10 +732,10 @@ void VectorRequest::Clear() {
     delete second_;
   }
   second_ = nullptr;
-  if (GetArena() == nullptr && thrird_ != nullptr) {
-    delete thrird_;
+  if (GetArena() == nullptr && third_ != nullptr) {
+    delete third_;
   }
-  thrird_ = nullptr;
+  third_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -718,10 +761,10 @@ const char* VectorRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .calculus.Vector thrird = 3;
+      // .calculus.Vector third = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_thrird(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_third(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -769,12 +812,12 @@ failure:
         2, _Internal::second(this), target, stream);
   }
 
-  // .calculus.Vector thrird = 3;
-  if (this->has_thrird()) {
+  // .calculus.Vector third = 3;
+  if (this->has_third()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::thrird(this), target, stream);
+        3, _Internal::third(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -807,11 +850,11 @@ size_t VectorRequest::ByteSizeLong() const {
         *second_);
   }
 
-  // .calculus.Vector thrird = 3;
-  if (this->has_thrird()) {
+  // .calculus.Vector third = 3;
+  if (this->has_third()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *thrird_);
+        *third_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -851,8 +894,8 @@ void VectorRequest::MergeFrom(const VectorRequest& from) {
   if (from.has_second()) {
     _internal_mutable_second()->::calculus::Vector::MergeFrom(from._internal_second());
   }
-  if (from.has_thrird()) {
-    _internal_mutable_thrird()->::calculus::Vector::MergeFrom(from._internal_thrird());
+  if (from.has_third()) {
+    _internal_mutable_third()->::calculus::Vector::MergeFrom(from._internal_third());
   }
 }
 
@@ -878,14 +921,262 @@ void VectorRequest::InternalSwap(VectorRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(VectorRequest, thrird_)
-      + sizeof(VectorRequest::thrird_)
+      PROTOBUF_FIELD_OFFSET(VectorRequest, third_)
+      + sizeof(VectorRequest::third_)
       - PROTOBUF_FIELD_OFFSET(VectorRequest, first_)>(
           reinterpret_cast<char*>(&first_),
           reinterpret_cast<char*>(&other->first_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata VectorRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void VectorMagnitudeRequest::InitAsDefaultInstance() {
+}
+class VectorMagnitudeRequest::_Internal {
+ public:
+};
+
+VectorMagnitudeRequest::VectorMagnitudeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:calculus.VectorMagnitudeRequest)
+}
+VectorMagnitudeRequest::VectorMagnitudeRequest(const VectorMagnitudeRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&mag1_, &from.mag1_,
+    static_cast<size_t>(reinterpret_cast<char*>(&angle_) -
+    reinterpret_cast<char*>(&mag1_)) + sizeof(angle_));
+  // @@protoc_insertion_point(copy_constructor:calculus.VectorMagnitudeRequest)
+}
+
+void VectorMagnitudeRequest::SharedCtor() {
+  ::memset(&mag1_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&angle_) -
+      reinterpret_cast<char*>(&mag1_)) + sizeof(angle_));
+}
+
+VectorMagnitudeRequest::~VectorMagnitudeRequest() {
+  // @@protoc_insertion_point(destructor:calculus.VectorMagnitudeRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void VectorMagnitudeRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void VectorMagnitudeRequest::ArenaDtor(void* object) {
+  VectorMagnitudeRequest* _this = reinterpret_cast< VectorMagnitudeRequest* >(object);
+  (void)_this;
+}
+void VectorMagnitudeRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void VectorMagnitudeRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const VectorMagnitudeRequest& VectorMagnitudeRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_VectorMagnitudeRequest_vector_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void VectorMagnitudeRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:calculus.VectorMagnitudeRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&mag1_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&angle_) -
+      reinterpret_cast<char*>(&mag1_)) + sizeof(angle_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VectorMagnitudeRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double mag1 = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          mag1_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double mag2 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          mag2_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double angle = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          angle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* VectorMagnitudeRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:calculus.VectorMagnitudeRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double mag1 = 1;
+  if (!(this->mag1() <= 0 && this->mag1() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_mag1(), target);
+  }
+
+  // double mag2 = 2;
+  if (!(this->mag2() <= 0 && this->mag2() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_mag2(), target);
+  }
+
+  // double angle = 3;
+  if (!(this->angle() <= 0 && this->angle() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_angle(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:calculus.VectorMagnitudeRequest)
+  return target;
+}
+
+size_t VectorMagnitudeRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:calculus.VectorMagnitudeRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // double mag1 = 1;
+  if (!(this->mag1() <= 0 && this->mag1() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double mag2 = 2;
+  if (!(this->mag2() <= 0 && this->mag2() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double angle = 3;
+  if (!(this->angle() <= 0 && this->angle() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void VectorMagnitudeRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:calculus.VectorMagnitudeRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const VectorMagnitudeRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<VectorMagnitudeRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:calculus.VectorMagnitudeRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:calculus.VectorMagnitudeRequest)
+    MergeFrom(*source);
+  }
+}
+
+void VectorMagnitudeRequest::MergeFrom(const VectorMagnitudeRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:calculus.VectorMagnitudeRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from.mag1() <= 0 && from.mag1() >= 0)) {
+    _internal_set_mag1(from._internal_mag1());
+  }
+  if (!(from.mag2() <= 0 && from.mag2() >= 0)) {
+    _internal_set_mag2(from._internal_mag2());
+  }
+  if (!(from.angle() <= 0 && from.angle() >= 0)) {
+    _internal_set_angle(from._internal_angle());
+  }
+}
+
+void VectorMagnitudeRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:calculus.VectorMagnitudeRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VectorMagnitudeRequest::CopyFrom(const VectorMagnitudeRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:calculus.VectorMagnitudeRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VectorMagnitudeRequest::IsInitialized() const {
+  return true;
+}
+
+void VectorMagnitudeRequest::InternalSwap(VectorMagnitudeRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(VectorMagnitudeRequest, angle_)
+      + sizeof(VectorMagnitudeRequest::angle_)
+      - PROTOBUF_FIELD_OFFSET(VectorMagnitudeRequest, mag1_)>(
+          reinterpret_cast<char*>(&mag1_),
+          reinterpret_cast<char*>(&other->mag1_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VectorMagnitudeRequest::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -901,6 +1192,9 @@ template<> PROTOBUF_NOINLINE ::calculus::Vector* Arena::CreateMaybeMessage< ::ca
 }
 template<> PROTOBUF_NOINLINE ::calculus::VectorRequest* Arena::CreateMaybeMessage< ::calculus::VectorRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::calculus::VectorRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::calculus::VectorMagnitudeRequest* Arena::CreateMaybeMessage< ::calculus::VectorMagnitudeRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::calculus::VectorMagnitudeRequest >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

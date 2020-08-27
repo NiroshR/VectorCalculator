@@ -9,19 +9,132 @@
 #include <grpcpp/server_builder.h>
 #include <grpcpp/server_context.h>
 
+#include <cmath>
 #include <memory>
 #include <string>
+
+#define PI 3.14159265359
 
 using grpc::Server;
 using grpc::ServerBuilder;
 
 VectorServiceImpl::VectorServiceImpl() {}
 
-Status VectorServiceImpl::CrossProduct(::ServerContext* context,
-                                       const ::calculus::VectorRequest* request,
-                                       ::calculus::Vector* response) {
-    response->set_y(5.0);
+Status VectorServiceImpl::VectorCrossProduct(ServerContext* context,
+                                             const VectorRequest* request,
+                                             Vector* response) {
+    crossProduct(request, response);
+
     return Status::OK;
+}
+
+Status VectorServiceImpl::VectorCrossProductAbsolute(
+    ServerContext* context, const VectorRequest* request, Scalar* response) {
+    Vector* vec = new Vector();
+    crossProduct(request, vec);
+
+    response->set_value(vectorMagnitude(vec));
+
+    return Status::OK;
+}
+
+Status VectorServiceImpl::MagnitudeCrossProduct(
+    ServerContext* context, const VectorMagnitudeRequest* request,
+    Scalar* response) {
+    double tmp = sin(request->angle() * PI / 180);
+    response->set_value(request->mag1() * request->mag2() * tmp);
+
+    return Status::OK;
+}
+
+Status VectorServiceImpl::DotProduct(ServerContext* context,
+                                     const VectorRequest* request,
+                                     Scalar* response) {
+    response->set_value(dotProduct(request));
+    return Status::OK;
+}
+
+Status VectorServiceImpl::MagnitudeDotProduct(
+    ServerContext* context, const VectorMagnitudeRequest* request,
+    Scalar* response) {
+    double tmp = cos(request->angle() * PI / 180);
+    response->set_value(request->mag1() * request->mag2() * tmp);
+
+    return Status::OK;
+}
+
+Status VectorServiceImpl::ScalarProjection(ServerContext* context,
+                                           const VectorRequest* request,
+                                           Scalar* response) {
+    double dot = dotProduct(request);
+    auto tmp = request->second();
+    double mag = vectorMagnitude(&tmp);
+    response->set_value(dot / mag);
+    return Status::OK;
+}
+
+Status VectorServiceImpl::VectorProjection(ServerContext* context,
+                                           const VectorRequest* request,
+                                           Vector* response) {
+    double dot = dotProduct(request);
+    auto tmp = request->second();
+    double mag = vectorMagnitude(&tmp);
+    double scalar = dot / mag;
+    auto vec2 = request->second();
+    assignVectorValues(response, scalar * vec2.x(), scalar * vec2.y(),
+                       scalar * vec2.z());
+    return Status::OK;
+}
+
+Status VectorServiceImpl::ApplicationVolumeParallelepiped(
+    ServerContext* context, const VectorRequest* request, Scalar* response) {
+    Vector* vec = new Vector();
+    crossProduct(request, vec);
+
+    auto vec3 = request->third();
+
+    double x = vec->x() * vec3.x();
+    double y = vec->y() * vec3.y();
+    double z = vec->z() * vec3.z();
+
+    response->set_value(fabs(x + y + z));
+
+    return Status::OK;
+}
+
+void VectorServiceImpl::assignVectorValues(Vector* vec, double x, double y,
+                                           double z) {
+    vec->set_x(x);
+    vec->set_y(y);
+    vec->set_z(z);
+}
+
+void VectorServiceImpl::crossProduct(const VectorRequest* request,
+                                     Vector* response) {
+    auto vec1 = request->first();
+    auto vec2 = request->second();
+
+    double x = (vec1.y() * vec2.z()) - (vec1.z() * vec2.y());
+    double y = (vec1.z() * vec2.x()) - (vec1.x() * vec2.z());
+    double z = (vec1.x() * vec2.y()) - (vec1.y() * vec2.x());
+
+    assignVectorValues(response, x, y, z);
+}
+
+double VectorServiceImpl::dotProduct(const VectorRequest* request) {
+    auto vec1 = request->first();
+    auto vec2 = request->second();
+
+    double x = vec1.x() * vec2.x();
+    double y = vec1.y() * vec2.y();
+    double z = vec1.z() * vec2.z();
+
+    return x + y + z;
+}
+
+double VectorServiceImpl::vectorMagnitude(const Vector* vec) {
+    return sqrt(vec->x() * vec->x() + vec->y() * vec->y() +
+                vec->z() * vec->z());
 }
 
 void RunServer() {

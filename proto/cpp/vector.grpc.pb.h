@@ -36,27 +36,160 @@ class VectorCalculator final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> AsyncCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(AsyncCrossProductRaw(context, request, cq));
+    virtual ::grpc::Status VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> AsyncVectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(AsyncVectorCrossProductRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> PrepareAsyncCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(PrepareAsyncCrossProductRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> PrepareAsyncVectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(PrepareAsyncVectorCrossProductRaw(context, request, cq));
+    }
+    virtual ::grpc::Status VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncVectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncVectorCrossProductAbsoluteRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncVectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncVectorCrossProductAbsoluteRaw(context, request, cq));
+    }
+    virtual ::grpc::Status MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncMagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncMagnitudeCrossProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncMagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncMagnitudeCrossProductRaw(context, request, cq));
+    }
+    virtual ::grpc::Status DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncDotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncDotProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncDotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncDotProductRaw(context, request, cq));
+    }
+    virtual ::grpc::Status MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncMagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncMagnitudeDotProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncMagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncMagnitudeDotProductRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncScalarProjectionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncScalarProjectionRaw(context, request, cq));
+    }
+    virtual ::grpc::Status VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> AsyncVectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(AsyncVectorProjectionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>> PrepareAsyncVectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>>(PrepareAsyncVectorProjectionRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> AsyncApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(AsyncApplicationVolumeParallelepipedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>> PrepareAsyncApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>>(PrepareAsyncApplicationVolumeParallelepipedRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -67,33 +200,180 @@ class VectorCalculator final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* AsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* PrepareAsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* AsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* PrepareAsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* AsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Vector>* PrepareAsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* AsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::calculus::Scalar>* PrepareAsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> AsyncCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(AsyncCrossProductRaw(context, request, cq));
+    ::grpc::Status VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> AsyncVectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(AsyncVectorCrossProductRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> PrepareAsyncCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(PrepareAsyncCrossProductRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> PrepareAsyncVectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(PrepareAsyncVectorCrossProductRaw(context, request, cq));
+    }
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncVectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncVectorCrossProductAbsoluteRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncVectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncVectorCrossProductAbsoluteRaw(context, request, cq));
+    }
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncMagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncMagnitudeCrossProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncMagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncMagnitudeCrossProductRaw(context, request, cq));
+    }
+    ::grpc::Status DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncDotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncDotProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncDotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncDotProductRaw(context, request, cq));
+    }
+    ::grpc::Status MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncMagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncMagnitudeDotProductRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncMagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncMagnitudeDotProductRaw(context, request, cq));
+    }
+    ::grpc::Status ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncScalarProjectionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncScalarProjectionRaw(context, request, cq));
+    }
+    ::grpc::Status VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Vector* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> AsyncVectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(AsyncVectorProjectionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>> PrepareAsyncVectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Vector>>(PrepareAsyncVectorProjectionRaw(context, request, cq));
+    }
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::calculus::Scalar* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> AsyncApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(AsyncApplicationVolumeParallelepipedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>> PrepareAsyncApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>>(PrepareAsyncApplicationVolumeParallelepipedRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
-      void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void CrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void CrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void VectorCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void VectorCrossProductAbsolute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void MagnitudeCrossProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void DotProduct(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void DotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void MagnitudeDotProduct(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ScalarProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ScalarProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
+      void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void VectorProjection(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void VectorProjection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Vector* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ApplicationVolumeParallelepiped(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::calculus::Scalar* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -106,9 +386,30 @@ class VectorCalculator final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* AsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* PrepareAsyncCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_CrossProduct_;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* AsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* PrepareAsyncVectorCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncVectorCrossProductAbsoluteRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncMagnitudeCrossProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncMagnitudeDotProductRaw(::grpc::ClientContext* context, const ::calculus::VectorMagnitudeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncScalarProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* AsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Vector>* PrepareAsyncVectorProjectionRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* AsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::calculus::Scalar>* PrepareAsyncApplicationVolumeParallelepipedRaw(::grpc::ClientContext* context, const ::calculus::VectorRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_VectorCrossProduct_;
+    const ::grpc::internal::RpcMethod rpcmethod_VectorCrossProductAbsolute_;
+    const ::grpc::internal::RpcMethod rpcmethod_MagnitudeCrossProduct_;
+    const ::grpc::internal::RpcMethod rpcmethod_DotProduct_;
+    const ::grpc::internal::RpcMethod rpcmethod_MagnitudeDotProduct_;
+    const ::grpc::internal::RpcMethod rpcmethod_ScalarProjection_;
+    const ::grpc::internal::RpcMethod rpcmethod_VectorProjection_;
+    const ::grpc::internal::RpcMethod rpcmethod_ApplicationVolumeParallelepiped_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -116,35 +417,182 @@ class VectorCalculator final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status CrossProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response);
+    virtual ::grpc::Status VectorCrossProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response);
+    virtual ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response);
+    virtual ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response);
+    virtual ::grpc::Status DotProduct(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response);
+    virtual ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response);
+    virtual ::grpc::Status ScalarProjection(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response);
+    virtual ::grpc::Status VectorProjection(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Vector* response);
+    virtual ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_CrossProduct : public BaseClass {
+  class WithAsyncMethod_VectorCrossProduct : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_CrossProduct() {
+    WithAsyncMethod_VectorCrossProduct() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_CrossProduct() override {
+    ~WithAsyncMethod_VectorCrossProduct() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCrossProduct(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Vector>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestVectorCrossProduct(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Vector>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CrossProduct<Service > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_CrossProduct : public BaseClass {
+  class WithAsyncMethod_VectorCrossProductAbsolute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_CrossProduct() {
+    WithAsyncMethod_VectorCrossProductAbsolute() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_VectorCrossProductAbsolute() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVectorCrossProductAbsolute(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_MagnitudeCrossProduct() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMagnitudeCrossProduct(::grpc::ServerContext* context, ::calculus::VectorMagnitudeRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_DotProduct() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDotProduct(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_MagnitudeDotProduct() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMagnitudeDotProduct(::grpc::ServerContext* context, ::calculus::VectorMagnitudeRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ScalarProjection() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestScalarProjection(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_VectorProjection() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVectorProjection(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Vector>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ApplicationVolumeParallelepiped() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestApplicationVolumeParallelepiped(::grpc::ServerContext* context, ::calculus::VectorRequest* request, ::grpc::ServerAsyncResponseWriter< ::calculus::Scalar>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_VectorCrossProduct<WithAsyncMethod_VectorCrossProductAbsolute<WithAsyncMethod_MagnitudeCrossProduct<WithAsyncMethod_DotProduct<WithAsyncMethod_MagnitudeDotProduct<WithAsyncMethod_ScalarProjection<WithAsyncMethod_VectorProjection<WithAsyncMethod_ApplicationVolumeParallelepiped<Service > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_VectorCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_VectorCrossProduct() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -158,8 +606,8 @@ class VectorCalculator final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) { return this->CrossProduct(context, request, response); }));}
-    void SetMessageAllocatorFor_CrossProduct(
+                     context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) { return this->VectorCrossProduct(context, request, response); }));}
+    void SetMessageAllocatorFor_VectorCrossProduct(
         ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Vector>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
@@ -169,71 +617,659 @@ class VectorCalculator final {
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Vector>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_CrossProduct() override {
+    ~ExperimentalWithCallbackMethod_VectorCrossProduct() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CrossProduct(
+    virtual ::grpc::ServerUnaryReactor* VectorCrossProduct(
       ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CrossProduct(
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorCrossProduct(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/)
     #endif
       { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_CrossProduct<Service > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_CrossProduct<Service > ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_CrossProduct : public BaseClass {
+  class ExperimentalWithCallbackMethod_VectorCrossProductAbsolute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_CrossProduct() {
-      ::grpc::Service::MarkMethodGeneric(0);
+    ExperimentalWithCallbackMethod_VectorCrossProductAbsolute() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) { return this->VectorCrossProductAbsolute(context, request, response); }));}
+    void SetMessageAllocatorFor_VectorCrossProductAbsolute(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
-    ~WithGenericMethod_CrossProduct() override {
+    ~ExperimentalWithCallbackMethod_VectorCrossProductAbsolute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* VectorCrossProductAbsolute(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorCrossProductAbsolute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_MagnitudeCrossProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response) { return this->MagnitudeCrossProduct(context, request, response); }));}
+    void SetMessageAllocatorFor_MagnitudeCrossProduct(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* MagnitudeCrossProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* MagnitudeCrossProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_DotProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) { return this->DotProduct(context, request, response); }));}
+    void SetMessageAllocatorFor_DotProduct(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* DotProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* DotProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_MagnitudeDotProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorMagnitudeRequest* request, ::calculus::Scalar* response) { return this->MagnitudeDotProduct(context, request, response); }));}
+    void SetMessageAllocatorFor_MagnitudeDotProduct(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* MagnitudeDotProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* MagnitudeDotProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_ScalarProjection() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) { return this->ScalarProjection(context, request, response); }));}
+    void SetMessageAllocatorFor_ScalarProjection(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ScalarProjection(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ScalarProjection(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_VectorProjection() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Vector>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorRequest* request, ::calculus::Vector* response) { return this->VectorProjection(context, request, response); }));}
+    void SetMessageAllocatorFor_VectorProjection(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Vector>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Vector>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* VectorProjection(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorProjection(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_ApplicationVolumeParallelepiped() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::calculus::VectorRequest* request, ::calculus::Scalar* response) { return this->ApplicationVolumeParallelepiped(context, request, response); }));}
+    void SetMessageAllocatorFor_ApplicationVolumeParallelepiped(
+        ::grpc::experimental::MessageAllocator< ::calculus::VectorRequest, ::calculus::Scalar>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::calculus::VectorRequest, ::calculus::Scalar>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ApplicationVolumeParallelepiped(
+      ::grpc::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ApplicationVolumeParallelepiped(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_VectorCrossProduct<ExperimentalWithCallbackMethod_VectorCrossProductAbsolute<ExperimentalWithCallbackMethod_MagnitudeCrossProduct<ExperimentalWithCallbackMethod_DotProduct<ExperimentalWithCallbackMethod_MagnitudeDotProduct<ExperimentalWithCallbackMethod_ScalarProjection<ExperimentalWithCallbackMethod_VectorProjection<ExperimentalWithCallbackMethod_ApplicationVolumeParallelepiped<Service > > > > > > > > CallbackService;
+  #endif
+
+  typedef ExperimentalWithCallbackMethod_VectorCrossProduct<ExperimentalWithCallbackMethod_VectorCrossProductAbsolute<ExperimentalWithCallbackMethod_MagnitudeCrossProduct<ExperimentalWithCallbackMethod_DotProduct<ExperimentalWithCallbackMethod_MagnitudeDotProduct<ExperimentalWithCallbackMethod_ScalarProjection<ExperimentalWithCallbackMethod_VectorProjection<ExperimentalWithCallbackMethod_ApplicationVolumeParallelepiped<Service > > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_VectorCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_VectorCrossProduct() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_VectorCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_CrossProduct : public BaseClass {
+  class WithGenericMethod_VectorCrossProductAbsolute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_CrossProduct() {
-      ::grpc::Service::MarkMethodRaw(0);
+    WithGenericMethod_VectorCrossProductAbsolute() {
+      ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithRawMethod_CrossProduct() override {
+    ~WithGenericMethod_VectorCrossProductAbsolute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCrossProduct(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  };
+  template <class BaseClass>
+  class WithGenericMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_MagnitudeCrossProduct() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_DotProduct() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_MagnitudeDotProduct() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ScalarProjection() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_VectorProjection() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ApplicationVolumeParallelepiped() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_VectorCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_VectorCrossProduct() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_VectorCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVectorCrossProduct(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_CrossProduct : public BaseClass {
+  class WithRawMethod_VectorCrossProductAbsolute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_CrossProduct() {
+    WithRawMethod_VectorCrossProductAbsolute() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_VectorCrossProductAbsolute() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVectorCrossProductAbsolute(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_MagnitudeCrossProduct() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMagnitudeCrossProduct(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_DotProduct() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDotProduct(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_MagnitudeDotProduct() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMagnitudeDotProduct(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ScalarProjection() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestScalarProjection(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_VectorProjection() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVectorProjection(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ApplicationVolumeParallelepiped() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestApplicationVolumeParallelepiped(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_VectorCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_VectorCrossProduct() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -247,55 +1283,510 @@ class VectorCalculator final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CrossProduct(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->VectorCrossProduct(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_CrossProduct() override {
+    ~ExperimentalWithRawCallbackMethod_VectorCrossProduct() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CrossProduct(
+    virtual ::grpc::ServerUnaryReactor* VectorCrossProduct(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CrossProduct(
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorCrossProduct(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_CrossProduct : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_VectorCrossProductAbsolute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_CrossProduct() {
+    ExperimentalWithRawCallbackMethod_VectorCrossProductAbsolute() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->VectorCrossProductAbsolute(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_VectorCrossProductAbsolute() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* VectorCrossProductAbsolute(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorCrossProductAbsolute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_MagnitudeCrossProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->MagnitudeCrossProduct(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* MagnitudeCrossProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* MagnitudeCrossProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_DotProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DotProduct(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* DotProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* DotProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_MagnitudeDotProduct() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->MagnitudeDotProduct(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* MagnitudeDotProduct(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* MagnitudeDotProduct(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ScalarProjection() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ScalarProjection(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ScalarProjection(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ScalarProjection(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_VectorProjection() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->VectorProjection(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* VectorProjection(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* VectorProjection(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ApplicationVolumeParallelepiped() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ApplicationVolumeParallelepiped(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ApplicationVolumeParallelepiped(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ApplicationVolumeParallelepiped(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_VectorCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_VectorCrossProduct() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::calculus::VectorRequest, ::calculus::Vector>(
             [this](::grpc_impl::ServerContext* context,
                    ::grpc_impl::ServerUnaryStreamer<
                      ::calculus::VectorRequest, ::calculus::Vector>* streamer) {
-                       return this->StreamedCrossProduct(context,
+                       return this->StreamedVectorCrossProduct(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_CrossProduct() override {
+    ~WithStreamedUnaryMethod_VectorCrossProduct() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+    ::grpc::Status VectorCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCrossProduct(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Vector>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedVectorCrossProduct(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Vector>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CrossProduct<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_VectorCrossProductAbsolute : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_VectorCrossProductAbsolute() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedVectorCrossProductAbsolute(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_VectorCrossProductAbsolute() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status VectorCrossProductAbsolute(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedVectorCrossProductAbsolute(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MagnitudeCrossProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_MagnitudeCrossProduct() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedMagnitudeCrossProduct(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_MagnitudeCrossProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MagnitudeCrossProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMagnitudeCrossProduct(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorMagnitudeRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_DotProduct() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedDotProduct(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_DotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDotProduct(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MagnitudeDotProduct : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_MagnitudeDotProduct() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorMagnitudeRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedMagnitudeDotProduct(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_MagnitudeDotProduct() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MagnitudeDotProduct(::grpc::ServerContext* /*context*/, const ::calculus::VectorMagnitudeRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMagnitudeDotProduct(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorMagnitudeRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ScalarProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ScalarProjection() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedScalarProjection(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ScalarProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ScalarProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedScalarProjection(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_VectorProjection : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_VectorProjection() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorRequest, ::calculus::Vector>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorRequest, ::calculus::Vector>* streamer) {
+                       return this->StreamedVectorProjection(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_VectorProjection() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status VectorProjection(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Vector* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedVectorProjection(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Vector>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ApplicationVolumeParallelepiped : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ApplicationVolumeParallelepiped() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::calculus::VectorRequest, ::calculus::Scalar>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::calculus::VectorRequest, ::calculus::Scalar>* streamer) {
+                       return this->StreamedApplicationVolumeParallelepiped(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ApplicationVolumeParallelepiped() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ApplicationVolumeParallelepiped(::grpc::ServerContext* /*context*/, const ::calculus::VectorRequest* /*request*/, ::calculus::Scalar* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedApplicationVolumeParallelepiped(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::calculus::VectorRequest,::calculus::Scalar>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_VectorCrossProduct<WithStreamedUnaryMethod_VectorCrossProductAbsolute<WithStreamedUnaryMethod_MagnitudeCrossProduct<WithStreamedUnaryMethod_DotProduct<WithStreamedUnaryMethod_MagnitudeDotProduct<WithStreamedUnaryMethod_ScalarProjection<WithStreamedUnaryMethod_VectorProjection<WithStreamedUnaryMethod_ApplicationVolumeParallelepiped<Service > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CrossProduct<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_VectorCrossProduct<WithStreamedUnaryMethod_VectorCrossProductAbsolute<WithStreamedUnaryMethod_MagnitudeCrossProduct<WithStreamedUnaryMethod_DotProduct<WithStreamedUnaryMethod_MagnitudeDotProduct<WithStreamedUnaryMethod_ScalarProjection<WithStreamedUnaryMethod_VectorProjection<WithStreamedUnaryMethod_ApplicationVolumeParallelepiped<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace calculus
